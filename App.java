@@ -7,23 +7,42 @@ public class App {
   public static void main(String[] args) {
     Console console = System.console();
 
-    System.out.println("Enter a String");
+    boolean appRunning = true;
 
-    String userString = console.readLine();
-    String[] userArray = userString.split("");
-    List<String> list = Arrays.asList(userArray);
-    Collections.reverse(list);
+    while(appRunning == true){
+      System.out.println("Enter a String");
+      System.out.println();
 
-    userArray = (String[]) list.toArray();
+      String userString = console.readLine();
+      String[] userArray = userString.split("");
+      List<String> list = Arrays.asList(userArray);
+      Collections.reverse(list);
 
-    System.out.println("Reversed");
-    System.out.println();
+      userArray = (String[]) list.toArray();
 
-    for(int i=0; i < userArray.length; i++){
-      System.out.print(userArray[i]);
+      System.out.println();
+      System.out.println("REVERSED");
+      System.out.println("   IS   ");
+      System.out.println();
+
+      for(int i=0; i < userArray.length; i++){
+        System.out.print(userArray[i]);
+      }
+
+      System.out.println();
+      System.out.println("Would you like to 'retry' or 'exit'?");
+
+      String statusRequest = console.readLine();
+      if (statusRequest.equals("exit")){
+        appRunning = false;
+      } else if (statusRequest.equals("retry")){
+        System.out.println();
+        System.out.println("Okay let's play again");
+        System.out.println();
+      } else {
+        System.out.println("I'm sorry, I did not understand that response.");
+      }
     }
-
-    System.out.println();
 
   }
 
